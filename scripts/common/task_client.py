@@ -25,11 +25,17 @@ def parse_images(value: str | None) -> list[str]:
     if not value:
         return images
     for image in value.split(","):
+        image = image.strip()
+        if not image:
+            continue
         if os.path.exists(image):
             with open(image, "rb") as f:
                 image_bytes = f.read()
                 image_base64 = base64.b64encode(image_bytes).decode("utf-8")
                 images.append(image_base64)
+        else:
+            # Assume it's a URL or base64 string
+            images.append(image)
     return images
 
 
