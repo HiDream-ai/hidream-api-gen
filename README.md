@@ -1,4 +1,4 @@
-# HD OpenClaw Skills
+# HiDream API Gen Skills
 
 A comprehensive collection of AI generation skills for the OpenClaw platform (vivago.ai), enabling seamless integration of advanced video and image generation models into your applications or AI agents.
 
@@ -59,7 +59,7 @@ python3 scripts/kling.py --version "Q2.5T-std" --prompt "A flying car"
 
 <a id="中文介绍"></a>
 
-# HD OpenClaw Skills (中文介绍)
+# HiDream API Gen Skills (中文介绍)
 
 这是一个针对 OpenClaw 平台 (vivago.ai) 的 AI 生成技能集合，旨在帮助开发者轻松集成先进的视频和图像生成模型。
 
