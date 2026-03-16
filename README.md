@@ -29,10 +29,23 @@ pip install requests
 
 ### Configuration
 
+You can configure your API token in two ways:
+
+**Method 1: Interactive (Recommended)**
+
+Run the configuration script and follow the prompts:
+
+```bash
+python3 scripts/configure.py
+```
+This will save your token to `.hidream_config.json` in the project directory.
+
+**Method 2: Environment Variable**
+
 Get your API token from [vivago.ai/platform/token](https://vivago.ai/platform/token) and set it:
 
 ```bash
-export OPENCLAW_AUTHORIZATION="your-sk-token"
+export HIDREAM_AUTHORIZATION="your-sk-token"
 ```
 
 ### Usage (Python)
@@ -88,10 +101,23 @@ pip install requests
 
 ### 配置
 
+你可以通过以下两种方式配置 API Token：
+
+**方法 1: 交互式配置 (推荐)**
+
+运行配置脚本并按照提示操作：
+
+```bash
+python3 scripts/configure.py
+```
+这会将你的 Token 保存到项目目录下的 `.hidream_config.json`。
+
+**方法 2: 环境变量**
+
 前往 [vivago.ai/platform/token](https://vivago.ai/platform/token) 获取 API Token 并设置环境变量：
 
 ```bash
-export OPENCLAW_AUTHORIZATION="your-sk-token"
+export HIDREAM_AUTHORIZATION="your-sk-token"
 ```
 
 ### 使用示例 (Python)
