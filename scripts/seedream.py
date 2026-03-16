@@ -20,6 +20,7 @@ def _parse_images(value: str | None) -> list[str] | None:
 def run(
     version: str,
     prompt: str,
+    negative_prompt: str | None = None,
     resolution: str = "2048*2048",
     images: str | list[str] | None = None,
     is_sequential_image: bool = False,
@@ -33,6 +34,7 @@ def run(
     Args:
         version: "M1" or "M2"
         prompt: Text prompt
+        negative_prompt: Negative prompt
         resolution: "WIDTH*HEIGHT" string (e.g., "2048*2048")
         images: Comma-separated file paths (str) or list of base64 strings
         is_sequential_image: Enable sequential image mode
@@ -78,6 +80,7 @@ def run(
         "version": version,
         "request_id": request_id,
         "prompt": prompt,
+        "negative_prompt": negative_prompt,
         "images": final_images,
         "resolution": resolution,
         "is_sequential_image": is_sequential_image,
@@ -96,6 +99,7 @@ def parse_args():
         help="Seedream version.",
     )
     parser.add_argument("--prompt", required=True, help="Text prompt.")
+    parser.add_argument("--negative-prompt", help="Negative prompt.")
     parser.add_argument("--images", help="Comma-separated image URLs/base64.")
     parser.add_argument(
         "--resolution",
@@ -123,6 +127,7 @@ def main_entry() -> int:
         result = run(
             version=args.version,
             prompt=args.prompt,
+            negative_prompt=args.negative_prompt,
             resolution=args.resolution,
             images=args.images,
             is_sequential_image=args.is_sequential_image,

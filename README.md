@@ -38,7 +38,7 @@ Run the configuration script and follow the prompts:
 ```bash
 python3 scripts/configure.py
 ```
-This will save your token to `.hidream_config.json` in the project directory.
+This will save your token to `~/.config/openclaw/hidream_config.json`.
 
 **Method 2: Environment Variable**
 
@@ -110,7 +110,7 @@ pip install requests
 ```bash
 python3 scripts/configure.py
 ```
-这会将你的 Token 保存到项目目录下的 `.hidream_config.json`。
+这会将你的 Token 保存到 `~/.config/openclaw/hidream_config.json`。
 
 **方法 2: 环境变量**
 

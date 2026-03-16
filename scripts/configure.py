@@ -39,7 +39,7 @@ def main():
 
     try:
         set_token(token)
-        print(f"Token saved to .hidream_config.json (in project root)")
+        print(f"Token saved to ~/.config/openclaw/hidream_config.json")
     except Exception as e:
         print(f"Error saving token: {e}")
         return 1
