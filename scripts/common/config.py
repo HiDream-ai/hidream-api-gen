@@ -4,9 +4,14 @@ import json
 import os
 from pathlib import Path
 
-# Project root (hidream-api-gen/)
-PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
-CONFIG_FILE = PROJECT_ROOT / ".hidream_config.json"
+# Unified config directory (XDG Base Directory compliant)
+CONFIG_DIR = Path.home() / ".config" / "openclaw"
+CONFIG_FILE = CONFIG_DIR / "hidream_config.json"
+
+
+def _ensure_config_dir() -> None:
+    """Ensure the config directory exists."""
+    CONFIG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def get_token() -> str | None:
@@ -15,7 +20,7 @@ def get_token() -> str | None:
     Priority:
     1. HIDREAM_AUTHORIZATION env var
     2. OPENCLAW_AUTHORIZATION env var (legacy)
-    3. .hidream_config.json (in project root)
+    3. ~/.config/openclaw/hidream_config.json (unified config)
     """
     # 1. Check Env
     token = os.getenv("HIDREAM_AUTHORIZATION") or os.getenv("OPENCLAW_AUTHORIZATION")
@@ -34,7 +39,8 @@ def get_token() -> str | None:
 
 
 def set_token(token: str) -> None:
-    """Save authorization token to config file."""
+    """Save authorization token to unified config file."""
+    _ensure_config_dir()
     data = {}
     if CONFIG_FILE.exists():
         try:
