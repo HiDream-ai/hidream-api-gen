@@ -3,7 +3,7 @@ name: hidream-aigc-skills
 description: OpenClaw AIGC models (video + image) with parameterized per-model scripts and shared request runners. Use to generate OpenClaw payloads, enforce allowed parameters, and run or debug model requests.
 ---
 
-# HD AIGC Skills
+# hidream aigc
 
 This skill provides per-model scripts that validate parameters and call shared request runners.
 
