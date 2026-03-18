@@ -11,10 +11,15 @@ This skill provides per-model scripts that validate parameters and call shared r
 
 When a user wants to use this skill, follow these steps:
 
-1.  **Check for Token**: Check if `HIDREAM_AUTHORIZATION` is set or if a config file exists (using `scripts/configure.py` which saves to `~/.config/openclaw/hidream_config.json`).
+1.  **Check for Token**: Check if `HIDREAM_AUTHORIZATION` is set or if a config file exists. The system checks in this order:
+    *   Environment Variable: `HIDREAM_AUTHORIZATION`
+    *   Local Env File: `~/openclaw/.env` (supports `HIDREAM_AUTHORIZATION` or `ticket`)
+    *   Config File: `~/.config/openclaw/hidream_config.json`
+
 2.  **Request Token**: If the token is missing, instruct the user to:
-    *   Go to `https://vivago.ai/platform/token` to generate a token.
-    *   Run `python3 scripts/configure.py` to save it locally.
+    *   **Option A (Recommended)**: Go to `https://vivago.ai/platform/token` to generate a token.
+    *   **Option B (Ticket Exchange)**: If the user provides a `ticket` (e.g., from browser cookies), save it to `~/openclaw/.env` as `ticket=...`. The system will automatically exchange it for a valid token.
+    *   **Configure**: Run `python3 scripts/configure.py` to interactively save the token.
 3.  **Configure**: Once the user provides the token, use it in subsequent calls (or set it as an env var if possible).
 4.  **Generate**: Use the Python interface to generate content based on user requests.
 
