@@ -22,6 +22,23 @@ When a user wants to use this skill, follow these steps:
     *   **Configure**: Run `python3 scripts/configure.py` to interactively save the token.
 3.  **Configure**: Once the user provides the token, use it in subsequent calls (or set it as an env var if possible).
 4.  **Generate**: Use the Python interface to generate content based on user requests.
+5.  **Present Results**: When showing generated images or videos to the user, **ALWAYS** use the following Markdown formats to ensure proper rendering in the Claw interface:
+
+    ### Output Formatting Rules
+
+    **Images**
+    *   **Standard**: `![Description](URL)`
+    *   **With Width (Recommended)**: `<img src="URL" width="300" />`
+    *   **Centered**:
+        ```html
+        <div align="center">
+          <img src="URL" width="300" />
+        </div>
+        ```
+
+    **Videos**
+    *   **Standard Link**: `[Click to Watch Video](URL)`
+    *   **HTML Video Tag**: `<video src="URL" controls width="100%"></video>`
 
 ### Error Handling
 
